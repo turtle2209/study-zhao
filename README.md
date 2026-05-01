@@ -1,5 +1,5 @@
-# 回调函数与结构体的学习
-  以下是本人在学习回调函数以及结构体写的一些代码和个人见解，主要用于记录学习历程。
+# C语言的学习
+  以下是本人在学习C语言写的一些代码和个人见解，主要用于记录学习历程。
 ## 一· 回调函数
 可以把回调函数看作是贴标签。
 以下是代码呈现：
@@ -94,6 +94,38 @@ int main()
     setSpeed(&m1,100.0) ;
     setAngle(&m1,80.0) ;
     printf("电机%d 转速；%.1f 角度：%.1f",m1.id , m1.speed,m1.angle) ;
+    return 0 ;
+}
+```
+## 三· 二分查找
+```c
+#include <stdio.h>
+
+int erfenfa(int arr[],int len,int target)
+{
+    int left = 0 ;
+    int right = len - 1 ;
+
+    while(left <= right){
+        int mid = left + (right - left)/2 ;
+
+        if (arr[mid] == target)
+            return mid ;
+        else if (arr[mid] < target)
+            left = mid + 1 ;
+        else 
+            right = mid - 1 ;
+    }
+    return -1 ;
+}
+
+int main()
+{
+    int arr[] = {1,2,3,4,5,6};
+    int len = sizeof(arr)/sizeof(int) ;
+    int a = 0 ;
+    a = erfenfa(arr,len,5) ;
+    printf("%d\n",a) ;
     return 0 ;
 }
 ```
